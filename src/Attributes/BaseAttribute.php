@@ -27,29 +27,4 @@ abstract class BaseAttribute implements AccessorContract
         }, \explode('_', $str)));
     }
 
-    /**
-     * Checks if given $newValue item is of the type property typehints allow.
-     */
-    public function isType(\ReflectionProperty $property, string $requiredType): bool
-    {
-        $typeOrUnion = $property->getType();
-
-        // No type hint.
-        if ($typeOrUnion === null) {
-            return true;
-        }
-
-        if ($typeOrUnion instanceof \ReflectionNamedType) {
-            return $typeOrUnion->getName() === $requiredType;
-        } elseif ($typeOrUnion instanceof \ReflectionUnionType) {
-            foreach ($typeOrUnion->getTypes() as $type) {
-                /** @var \ReflectionNamedType $type */
-                if ($type->getName() === $requiredType) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
 } // end of class
