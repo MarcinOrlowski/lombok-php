@@ -8,6 +8,11 @@
 # @link      https://github.com/MarcinOrlowski/lombok-php
 #
 ##################################################################################
+#
+# Manual run:
+#
+#  markdownlint --config .markdownlint.yaml --ignore vendor **.md
+#
 
 # Default state for all rules
 default: true

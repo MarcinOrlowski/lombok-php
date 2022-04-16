@@ -7,7 +7,7 @@
 
 ---
 
-## Table of contents ##
+# Table of contents #
 
 * [Introduction](#introduction)
 * [Why should I use it?](#benefits)

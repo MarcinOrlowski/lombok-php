@@ -2,7 +2,7 @@
 
 ---
 
-## Table of contents ##
+# Table of contents #
 
 * [« Main README](../../README.md)
 * [« Documentation table of contents](../README.md)

@@ -2,7 +2,7 @@
 
 ---
 
-## CHANGE LOG ##
+# CHANGE LOG #
 
 * @dev
   * Initial release.

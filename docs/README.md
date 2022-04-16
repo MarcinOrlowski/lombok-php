@@ -2,22 +2,22 @@
 
 ---
 
-## Table of contents ##
+# Table of contents #
 
 * [« Main README](../README.md)
-  * [Requirements](#requirements) 
-  * [Installation](#installation)
-  * [Usage](#usage)
-    * [Using helper class](#using-helper-class)
-    * [Manual wiring](#manual-wiring)
-  * **[Available attributes](attributes/README.md)**
-  * [Limitations](#limitations)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Using helper class](#using-helper-class)
+  * [Manual wiring](#manual-wiring)
+* **[Available attributes](attributes/README.md)**
+* [Limitations](#limitations)
 
 ---
 
 ## Requirements ##
 
- * PHP 8.0 or newer
+* PHP 8.0 or newer
 
 ---
 
