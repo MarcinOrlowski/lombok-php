@@ -21,7 +21,9 @@
 
 ## Introduction ##
 
-`Lombok PHP` is a handy package providing set of PHP8+ attributes aimed to help you reduce
+`Lombok PHP` is a package providing growing set
+of [PHP attributes](https://www.php.net/manual/en/language.attributes.php) (feature
+[introduced by PHP 8.0](https://www.php.net/releases/8.0/)) and is intended to help you reduce
 boilerplate code in your project, by providing commonly used functionality you can easily apply.
 
 And yes, the project name is shamelessly borrowed from the beloved Java's
