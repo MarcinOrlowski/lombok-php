@@ -43,16 +43,9 @@ final class Lombok
      */
     public static function call(object $targetObj, string $methodName, array $args)
     {
-        static::construct($targetObj);
-
-        $id = \spl_object_id($targetObj);
-        $objectConfig = static::$config[ $id ] ?? null;
-        if ($objectConfig === null) {
-            return;
-        }
+        $objectConfig =static::construct($targetObj);
 
         // Check getters first as these are usually more often used
-        /** @var ClassConfig $objectConfig */
         $getter = $objectConfig->getGetter($methodName);
         if ($getter !== null) {
             return $getter->getValue($targetObj);
@@ -73,11 +66,11 @@ final class Lombok
     /**
      * Configures Lombok for given object.
      */
-    public static function construct(object $targetObj): void
+    public static function construct(object $targetObj): ClassConfig
     {
         $id = \spl_object_id($targetObj);
         if (\array_key_exists($id, static::$config)) {
-            return;
+            return static::$config[ $id ];
         }
 
         try {
@@ -115,6 +108,8 @@ final class Lombok
 
             static::$config[ $id ] = $config;
 
+            return $config;
+
         } catch (\ReflectionException $ex) {
             throw new \RuntimeException($ex->getMessage(), $ex->getCode(), $ex);
         }
@@ -143,9 +138,11 @@ final class Lombok
      * @param string                 $attrClass Attribute class to look for i.e. Getter::class.
      * @param \ReflectionAttribute[] $clsAnnotations
      *
+     * @return \Lombok\Attributes\Accessors
+     *
+     * @throws \Lombok\Exceptions\MethodAlreadyExistsException
      * @throws \Lombok\Exceptions\PublicPropertyException
      * @throws \Lombok\Exceptions\StaticPropertyException
-     * @throws \Lombok\Exceptions\MethodAlreadyExistsException
      */
     protected static function setupPropertyAccessors(
         object $targetObj, \ReflectionProperty $property, string $attrClass,
