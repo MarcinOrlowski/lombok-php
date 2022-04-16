@@ -3,6 +3,7 @@
 ---
 
 [![Latest Stable Version](https://poser.pugx.org/marcin-orlowski/lombok-php/v)](https://packagist.org/packages/marcin-orlowski/laravel-api-response-builder)
+[![codecov](https://codecov.io/gh/MarcinOrlowski/lombok-php/branch/master/graph/badge.svg?token=MDOSOPKZ8C)](https://codecov.io/gh/MarcinOrlowski/lombok-php)
 [![License](https://poser.pugx.org/marcin-orlowski/lombok-php/license)](https://packagist.org/packages/marcin-orlowski/lombok-php)
 
 ---

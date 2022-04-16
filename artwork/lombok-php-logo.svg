@@ -7,7 +7,7 @@
    id="svg8"
    inkscape:version="1.1.2 (08b2f3d93c, 2022-04-05)"
    sodipodi:docname="lombok-php-logo.svg"
-   inkscape:export-filename="/home/carlos/Desktop/lombok-php-logo.png"
+   inkscape:export-filename="/home/carlos/dev/projects/lombok-php/artwork/lombok-php-logo.png"
    inkscape:export-xdpi="68.650002"
    inkscape:export-ydpi="68.650002"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -101,11 +101,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.0547013"
-     inkscape:cx="1031.6884"
-     inkscape:cy="211.64099"
+     inkscape:zoom="2.16"
+     inkscape:cx="183.56481"
+     inkscape:cy="243.28704"
      inkscape:document-units="mm"
-     inkscape:current-layer="g1276"
+     inkscape:current-layer="g966"
      showgrid="false"
      width="5600mm"
      showguides="true"
@@ -155,9 +155,13 @@
          id="circle3822" />
       <path
          inkscape:connector-curvature="0"
-         style="fill:#357abf;stroke-width:1.39644;fill-opacity:1"
-         d="m 512,256 c 0,-12.301 -0.887,-24.393 -2.564,-36.231 L 420.667,131 91.333,381 219.769,509.436 C 231.607,511.113 243.699,512 256,512 397.385,512 512,397.385 512,256 Z"
-         id="path3824" />
+         style="fill:#357abf;fill-opacity:1;stroke-width:1.39644"
+         d="m 512,256 c 0,-12.301 -0.887,-24.393 -2.564,-36.231 L 417.05181,146.0634 106.56133,262.31934 71.14801,336.71357 219.769,509.436 C 231.607,511.113 243.699,512 256,512 397.385,512 512,397.385 512,256 Z"
+         id="path3824"
+         sodipodi:nodetypes="scccccss"
+         inkscape:export-filename="/home/carlos/dev/projects/lombok-php/artwork/lombok-php-logo.png"
+         inkscape:export-xdpi="68.650002"
+         inkscape:export-ydpi="68.650002" />
       <g
          id="g3854"
          transform="matrix(0.38009637,0,0,0.38009637,71.114523,272.97698)"
