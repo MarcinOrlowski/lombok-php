@@ -13,8 +13,7 @@
 * [Introduction](#introduction)
 * [Why should I use it?](#benefits)
 * [Usage examples](#examples)
-* [Features](#features)
-* [Extensive documentation](docs/README.md)
+* [Documentation](docs/README.md)
 * [License](#license)
 * [Changelog](CHANGES.md)
 
