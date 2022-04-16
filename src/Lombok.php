@@ -171,10 +171,10 @@ final class Lombok
                     $propAttrInstance = $clsAttr->newInstance();
                     $methodName = $propAttrInstance->getFunctionName($property);
 
-                    static::assertMethodDoesNotExist($targetObj, $methodName);
-
-                    // Map created virtual accessor function to the target property.
-                    $map->add($methodName, $property);
+                    if (!\method_exists($targetObj, $methodName)) {
+                        // Map created virtual accessor function to the target property.
+                        $map->add($methodName, $property);
+                    }
                 }
             }
         } else {
@@ -200,7 +200,9 @@ final class Lombok
                 $propAttrInstance = $propAttr->newInstance();
                 $methodName = $propAttrInstance->getFunctionName($property);
 
-                static::assertMethodDoesNotExist($targetObj, $methodName);
+                if (\method_exists($targetObj, $methodName)) {
+                    throw new MethodAlreadyExistsException($targetObj, $methodName);
+                }
 
                 // Map created virtual accessor function to the target property.
                 $map->add($methodName, $property);

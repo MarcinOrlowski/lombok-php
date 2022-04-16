@@ -15,7 +15,9 @@ namespace LombokTest\Accessors;
 use Lombok\Exceptions\MethodAlreadyExistsException;
 use LombokTest\Entities\TestEntity;
 use LombokTest\Entities\TestEntityWithGetterNameConflict;
+use LombokTest\Entities\TestEntityWithGetterNameConflictWithClassAttributes;
 use LombokTest\Entities\TestEntityWithSetterNameConflict;
+use LombokTest\Entities\TestEntityWithSetterNameConflictWithClassAttributes;
 use LombokTest\TestCase;
 
 class MethodNameTest extends TestCase
@@ -49,6 +51,32 @@ class MethodNameTest extends TestCase
     {
         $this->expectException(MethodAlreadyExistsException::class);
         new TestEntityWithGetterNameConflict();
+    }
+
+    /**
+     * Ensures exception are NOT thrown if provided setter method name, generated
+     * based on class level attribute would conflict with class existing method.
+     * In such case we ignore the conflict and not provide our implementation.
+     */
+    public function testSetterMethodNameConflictClassLevel(): void
+    {
+        $obj = new TestEntityWithSetterNameConflictWithClassAttributes();
+        $val = $this->getRandomString();
+        $obj->setText($val);
+        $this->assertNotEquals($val, $obj->getText());
+        $this->assertEquals(\get_class($obj)::VALUE, $obj->getText());
+    }
+
+    /**
+     * Ensures exception are NOT thrown if provided getter method name, generated
+     * based on class level attribute would conflict with class existing method.
+     * In such case we ignore the conflict and not provide our implementation.
+     */
+    public function testGetterMethodNameConflictClassLevel(): void
+    {
+        $obj = new TestEntityWithGetterNameConflictWithClassAttributes();
+        $obj->setText($this->getRandomString());
+        $this->assertEquals(\get_class($obj)::VALUE, $obj->getText());
     }
 
 }
