@@ -1,4 +1,4 @@
-![Lombok PHP](../artwork/lombok-php-logo.png)
+![Lombok PHP](../../artwork/lombok-php-logo.png)
 
 ---
 
