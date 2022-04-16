@@ -11,7 +11,7 @@
 #
 # Manual run:
 #
-#  markdownlint --config .markdownlint.yaml --ignore vendor **.md
+#  markdownlint --config .markdownlint.yaml --ignore vendor **.md --ignore LICENSE.md
 #
 
 # Default state for all rules
