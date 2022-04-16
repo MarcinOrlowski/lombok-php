@@ -96,4 +96,4 @@ class Entity extends \Lombok\Helper
 ```
 
 In the above case, `Lombok PHP` will provide both accessors for `$name` property (`getName()` and
-`setName()`) but only getter for `$id`. 
+`setName()`) but only getter for `$id`.
