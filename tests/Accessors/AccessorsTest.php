@@ -88,17 +88,6 @@ class AccessorsTest extends TestCase
     }
 
     /**
-     * Ensures accessor name is SnakeCase formatter regardless of the property name.
-     */
-    public function testSnakeCase(): void
-    {
-        $obj = new TestEntity();
-        $val = $this->getRandomString();
-        $obj->setSnakeCase($val);
-        $this->assertEquals($val, $obj->getSnakeCase());
-    }
-
-    /**
      * Tests if default getter for boolean type property is prefixed with "is".
      */
     public function testBooleanGetter(): void

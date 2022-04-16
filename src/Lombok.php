@@ -15,6 +15,7 @@ namespace Lombok;
 use Lombok\Attributes\Accessors;
 use Lombok\Attributes\ClassConfig;
 use Lombok\Attributes\Contracts\AccessorContract;
+use Lombok\Exceptions\MethodAlreadyExistsException;
 use Lombok\Exceptions\PublicPropertyException;
 use Lombok\Exceptions\StaticPropertyException;
 
@@ -38,8 +39,6 @@ final class Lombok
     /**
      * @return mixed|void
      *
-     * @throws \Lombok\Exceptions\PublicPropertyException
-     * @throws \Lombok\Exceptions\StaticPropertyException
      * @throws \BadMethodCallException
      */
     public static function call(object $targetObj, string $methodName, array $args)
@@ -98,10 +97,10 @@ final class Lombok
                 $property = $reflection->getProperty($singlePropertyAttribute->getName());
 
                 // And then see if Getter or Setter attribute is applied to it.
-                $getters = static::setupPropertyAccessors($property, Getter::class, []);
+                $getters = static::setupPropertyAccessors($targetObj, $property, Getter::class, []);
                 $appliedLocalGetters = $getters->count() > 0;
                 if (!$appliedLocalGetters && \array_key_exists(Getter::class, $clsAttrs)) {
-                    $getters = static::setupPropertyAccessors($property, Getter::class, $clsAttrs);
+                    $getters = static::setupPropertyAccessors($targetObj, $property, Getter::class, $clsAttrs);
                 }
                 $config->addGetters($getters);
                 // Do not apply class level attributes if we configured any accessor already
@@ -109,7 +108,7 @@ final class Lombok
                 // That let's us to set subset of class attributes to a differently annotated
                 // property while still apply all the class attributes to remaining properties.
                 $setterClsAnnotations = $appliedLocalGetters ? [] : $clsAttrs;
-                $setters = static::setupPropertyAccessors($property, Setter::class,
+                $setters = static::setupPropertyAccessors($targetObj, $property, Setter::class,
                     $setterClsAnnotations);
                 $config->addSetters($setters);
             }
@@ -139,15 +138,18 @@ final class Lombok
      * Scans $classProperty property's attributes and configures necessary handlers
      * for supported attributes (like #[Setter] or #[Getter], etc.)
      *
+     * @param object                 $targetObj
      * @param \ReflectionProperty    $property  Property to be inspected.
      * @param string                 $attrClass Attribute class to look for i.e. Getter::class.
      * @param \ReflectionAttribute[] $clsAnnotations
      *
      * @throws \Lombok\Exceptions\PublicPropertyException
      * @throws \Lombok\Exceptions\StaticPropertyException
+     * @throws \Lombok\Exceptions\MethodAlreadyExistsException
      */
     protected static function setupPropertyAccessors(
-        \ReflectionProperty $property, string $attrClass, array $clsAnnotations = []): Accessors
+        object $targetObj, \ReflectionProperty $property, string $attrClass,
+        array  $clsAnnotations = []): Accessors
     {
         $clsName = $property->getDeclaringClass()->getName();
         $propName = $property->getName();
@@ -167,10 +169,12 @@ final class Lombok
                 if ($clsAttr !== null) {
                     /** @var AccessorContract $propAttrInstance */
                     $propAttrInstance = $clsAttr->newInstance();
-                    $functionName = $propAttrInstance->getFunctionName($property);
+                    $methodName = $propAttrInstance->getFunctionName($property);
+
+                    static::assertMethodDoesNotExist($targetObj, $methodName);
 
                     // Map created virtual accessor function to the target property.
-                    $map->add($functionName, $property);
+                    $map->add($methodName, $property);
                 }
             }
         } else {
@@ -194,14 +198,29 @@ final class Lombok
                  * @var AccessorContract     $propAttrInstance
                  */
                 $propAttrInstance = $propAttr->newInstance();
-                $functionName = $propAttrInstance->getFunctionName($property);
+                $methodName = $propAttrInstance->getFunctionName($property);
+
+                static::assertMethodDoesNotExist($targetObj, $methodName);
 
                 // Map created virtual accessor function to the target property.
-                $map->add($functionName, $property);
+                $map->add($methodName, $property);
             }
         }
 
         return $map;
+    }
+
+    /**
+     * Checks if method named $methodName does not exist in $targetObject and throws
+     * exception if the assertion failed.
+     *
+     * @throws \Lombok\Exceptions\MethodAlreadyExistsException
+     */
+    protected static function assertMethodDoesNotExist(object $targetObj, string $methodName): void
+    {
+        if (\method_exists($targetObj, $methodName)) {
+            throw new MethodAlreadyExistsException($targetObj, $methodName);
+        }
     }
 
 } // end of class
