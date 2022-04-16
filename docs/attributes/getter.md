@@ -26,6 +26,11 @@ Can be applied to each of property individually or to whole class.
   whole class however, all the `public` and `static` properties will be silently ignored.
 
 
+* When applied to each property individually, will throw an exception when accessor method name
+  collides with existing class method. When applied to the whole class however, conflicts are
+  silently ignored and original method remains, with no accessor provided.
+
+
 * While mixing accessor attributes in class scope and property scope, class scope will **only** be
   applied if no property attribute were used. This lets you set wider scope for the whole class
   and still narrow it for specific properties. For example, if you put `#[Setter, Getter]` to
@@ -97,3 +102,38 @@ class Entity extends \Lombok\Helper
 
 In the above case, `Lombok PHP` will provide both accessors for `$name` property (`getName()` and
 `setName()`) but only getter for `$id`.
+
+---
+
+Method name conflict resolution:
+
+```php
+use Lombok\Getter;
+
+class Entity extends \Lombok\Helper
+{
+    #[Getter]
+    protected int $id = 0;
+    
+    public function getId() {}
+}
+```
+
+This will throw `MethodAlreadyExistsException` as `getId()` method already exists.
+
+Behavior is different for class level attributes:
+
+```php
+use Lombok\Getter;
+
+#[Getter]
+class Entity extends \Lombok\Helper
+{
+    
+    protected int $id = 0;
+    
+    public function getId() {}
+}
+```
+
+Original `getId()` method remain and no `Lombok PHP` accessor will be provided.
