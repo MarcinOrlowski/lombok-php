@@ -212,17 +212,4 @@ final class Lombok
         return $map;
     }
 
-    /**
-     * Checks if method named $methodName does not exist in $targetObject and throws
-     * exception if the assertion failed.
-     *
-     * @throws \Lombok\Exceptions\MethodAlreadyExistsException
-     */
-    protected static function assertMethodDoesNotExist(object $targetObj, string $methodName): void
-    {
-        if (\method_exists($targetObj, $methodName)) {
-            throw new MethodAlreadyExistsException($targetObj, $methodName);
-        }
-    }
-
 } // end of class
