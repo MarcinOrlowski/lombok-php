@@ -15,6 +15,7 @@ namespace Lombok;
 use Lombok\Attributes\Accessors;
 use Lombok\Attributes\ClassConfig;
 use Lombok\Attributes\Contracts\AccessorContract;
+use Lombok\Exceptions\MethodAlreadyExistsException;
 use Lombok\Exceptions\PublicPropertyException;
 use Lombok\Exceptions\StaticPropertyException;
 
@@ -38,22 +39,13 @@ final class Lombok
     /**
      * @return mixed|void
      *
-     * @throws \Lombok\Exceptions\PublicPropertyException
-     * @throws \Lombok\Exceptions\StaticPropertyException
      * @throws \BadMethodCallException
      */
     public static function call(object $targetObj, string $methodName, array $args)
     {
-        static::construct($targetObj);
-
-        $id = \spl_object_id($targetObj);
-        $objectConfig = static::$config[ $id ] ?? null;
-        if ($objectConfig === null) {
-            return;
-        }
+        $objectConfig =static::construct($targetObj);
 
         // Check getters first as these are usually more often used
-        /** @var ClassConfig $objectConfig */
         $getter = $objectConfig->getGetter($methodName);
         if ($getter !== null) {
             return $getter->getValue($targetObj);
@@ -74,11 +66,11 @@ final class Lombok
     /**
      * Configures Lombok for given object.
      */
-    public static function construct(object $targetObj): void
+    public static function construct(object $targetObj): ClassConfig
     {
         $id = \spl_object_id($targetObj);
         if (\array_key_exists($id, static::$config)) {
-            return;
+            return static::$config[ $id ];
         }
 
         try {
@@ -98,10 +90,10 @@ final class Lombok
                 $property = $reflection->getProperty($singlePropertyAttribute->getName());
 
                 // And then see if Getter or Setter attribute is applied to it.
-                $getters = static::setupPropertyAccessors($property, Getter::class, []);
+                $getters = static::setupPropertyAccessors($targetObj, $property, Getter::class, []);
                 $appliedLocalGetters = $getters->count() > 0;
                 if (!$appliedLocalGetters && \array_key_exists(Getter::class, $clsAttrs)) {
-                    $getters = static::setupPropertyAccessors($property, Getter::class, $clsAttrs);
+                    $getters = static::setupPropertyAccessors($targetObj, $property, Getter::class, $clsAttrs);
                 }
                 $config->addGetters($getters);
                 // Do not apply class level attributes if we configured any accessor already
@@ -109,12 +101,14 @@ final class Lombok
                 // That let's us to set subset of class attributes to a differently annotated
                 // property while still apply all the class attributes to remaining properties.
                 $setterClsAnnotations = $appliedLocalGetters ? [] : $clsAttrs;
-                $setters = static::setupPropertyAccessors($property, Setter::class,
+                $setters = static::setupPropertyAccessors($targetObj, $property, Setter::class,
                     $setterClsAnnotations);
                 $config->addSetters($setters);
             }
 
             static::$config[ $id ] = $config;
+
+            return $config;
 
         } catch (\ReflectionException $ex) {
             throw new \RuntimeException($ex->getMessage(), $ex->getCode(), $ex);
@@ -139,15 +133,20 @@ final class Lombok
      * Scans $classProperty property's attributes and configures necessary handlers
      * for supported attributes (like #[Setter] or #[Getter], etc.)
      *
+     * @param object                 $targetObj
      * @param \ReflectionProperty    $property  Property to be inspected.
      * @param string                 $attrClass Attribute class to look for i.e. Getter::class.
      * @param \ReflectionAttribute[] $clsAnnotations
      *
+     * @return \Lombok\Attributes\Accessors
+     *
+     * @throws \Lombok\Exceptions\MethodAlreadyExistsException
      * @throws \Lombok\Exceptions\PublicPropertyException
      * @throws \Lombok\Exceptions\StaticPropertyException
      */
     protected static function setupPropertyAccessors(
-        \ReflectionProperty $property, string $attrClass, array $clsAnnotations = []): Accessors
+        object $targetObj, \ReflectionProperty $property, string $attrClass,
+        array  $clsAnnotations = []): Accessors
     {
         $clsName = $property->getDeclaringClass()->getName();
         $propName = $property->getName();
@@ -167,10 +166,12 @@ final class Lombok
                 if ($clsAttr !== null) {
                     /** @var AccessorContract $propAttrInstance */
                     $propAttrInstance = $clsAttr->newInstance();
-                    $functionName = $propAttrInstance->getFunctionName($property);
+                    $methodName = $propAttrInstance->getFunctionName($property);
 
-                    // Map created virtual accessor function to the target property.
-                    $map->add($functionName, $property);
+                    if (!\method_exists($targetObj, $methodName)) {
+                        // Map created virtual accessor function to the target property.
+                        $map->add($methodName, $property);
+                    }
                 }
             }
         } else {
@@ -194,10 +195,14 @@ final class Lombok
                  * @var AccessorContract     $propAttrInstance
                  */
                 $propAttrInstance = $propAttr->newInstance();
-                $functionName = $propAttrInstance->getFunctionName($property);
+                $methodName = $propAttrInstance->getFunctionName($property);
+
+                if (\method_exists($targetObj, $methodName)) {
+                    throw new MethodAlreadyExistsException($targetObj, $methodName);
+                }
 
                 // Map created virtual accessor function to the target property.
-                $map->add($functionName, $property);
+                $map->add($methodName, $property);
             }
         }
 

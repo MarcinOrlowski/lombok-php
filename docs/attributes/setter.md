@@ -30,6 +30,11 @@ to each of property individually or to whole class.
   your `class`, but `#[Getter]` to specific property, that property will NOT have setter added.
 
 
+* When applied to each property individually, will throw an exception when accessor method name
+  collides with existing class method. When applied to the whole class however, conflicts are
+  silently ignored and original method remains, with no accessor provided.
+
+
 * When applied to each property individually, will throw an exception when applied to
   either `public`   or `static` property as neither is supported by design. When applied to the
   whole class however, all the `public` and `static` properties will be silently ignored.
@@ -97,3 +102,38 @@ class Entity extends \Lombok\Helper
 
 In the above case, `Lombok PHP` will provide both accessors for `$name` property (`getName()` and
 `setName()`) but only getter for `$id`.
+
+---
+
+Method name conflict resolution:
+
+```php
+use Lombok\Setter;
+
+class Entity extends \Lombok\Helper
+{
+    #[Setter]
+    protected int $id = 0;
+    
+    public function setId(int $id) {}
+}
+```
+
+This will throw `MethodAlreadyExistsException` as `setId()` method already exists.
+
+Behavior is different for class level attributes:
+
+```php
+use Lombok\Setter;
+
+#[Setter]
+class Entity extends \Lombok\Helper
+{
+    
+    protected int $id = 0;
+    
+    public function setId(int $id) {}
+}
+```
+
+In this case original `setId()` method remain and no `Lombok PHP` accessor will be provided.

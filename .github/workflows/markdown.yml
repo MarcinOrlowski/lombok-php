@@ -24,11 +24,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    # https://github.com/marketplace/actions/checkout
     - uses: actions/checkout@v2
+
+    # https://github.com/marketplace/actions/paths-changes-filter
+    - name: "Look for changed doc related files..."
+      uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          docs:
+            - 'docs/**'
+            - '**/*.md'
 
     # https://github.com/marketplace/actions/my-markdown-linter
     - name: "Running markdown linter..."
       uses: ruzickap/action-my-markdown-linter@v1
       with:
-        exclude: vendor
+        # LICENSE is externally sourced and we're not going to fix it.
+        exclude: "LICENSE.md"
         config_file: .markdownlint.yaml.dist

@@ -1,0 +1,13 @@
+#
+# trans-tool
+# The translation files checker and syncing tool.
+#
+# Copyright ©2021-2022 Marcin Orlowski <mail [@] MarcinOrlowski.com>
+# https://github.com/MarcinOrlowski/trans-tool/
+#
+comment: false
+coverage:
+  status:
+    patch:
+      default:
+        enabled: no
