@@ -14,9 +14,11 @@ namespace Lombok\Exceptions;
 
 final class PublicPropertyException extends \Exception
 {
-    public function __construct(string $cls, string $propertyName, int $code = 0, ?\Throwable $previous = null)
+    public function __construct(string      $cls, string $propertyName, int $code = 0,
+                                ?\Throwable $previous = null)
     {
         $message = \sprintf('Property "%2$s" of "%1$s" class cannot be public.', $cls, $propertyName);
         parent::__construct($message, $code, $previous);
     }
-}
+
+} // end of class

@@ -34,7 +34,7 @@ class Validator
      * Checks if $item (of name $key) is of type that is include in $allowed_types (there's `OR` connection
      * between specified types).
      *
-     * @param string          $varName      Label or name of the variable to be used in exception message (if thrown).
+     * @param string          $varName      Label or name of the variable to use exception message.
      * @param mixed           $value        Variable to be asserted.
      * @param string|string[] $allowedTypes Array of allowed types for $value, i.e. [Type::INTEGER]
      */
@@ -94,7 +94,8 @@ class Validator
     }
 
     /**
-     * Ensures $obj (that is value coming from variable, which name is passed in $label) is instance of $cls class.
+     * Ensures $obj (that is value coming from variable, which name is passed in $varName)
+     * is instance of $cls class.
      *
      * @param string $varName Name of variable that the $obj value is coming from. Used for exception message.
      * @param object $obj     Object to check instance of

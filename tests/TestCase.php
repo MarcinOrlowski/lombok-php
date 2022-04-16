@@ -175,8 +175,8 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Returns value of otherwise non-public member of the class
      *
-     * @param string|object $objectOrClass class name to get member from, or instance of that class
-     * @param string        $name          name of constant to grab (i.e. `FOO`)
+     * @param string|object $objectOrClass Class name to get member from, or instance of that class
+     * @param string        $name          Name of constant to grab (i.e. `FOO`)
      *
      * @return mixed
      */

@@ -21,4 +21,5 @@ class Type
     public const STRING = 'string';
     /** @var string */
     public const EXISTING_CLASS = 'existing_class';
-}
+
+} // end of class

@@ -73,9 +73,6 @@ final class Lombok
 
     /**
      * Configures Lombok for given object.
-     *
-     * @throws \Lombok\Exceptions\PublicPropertyException
-     * @throws \Lombok\Exceptions\StaticPropertyException
      */
     public static function construct(object $targetObj): void
     {
@@ -101,10 +98,10 @@ final class Lombok
                 $property = $reflection->getProperty($singlePropertyAttribute->getName());
 
                 // And then see if Getter or Setter attribute is applied to it.
-                $getters = static::configurePropertyAccessors($property, Getter::class, []);
+                $getters = static::setupPropertyAccessors($property, Getter::class, []);
                 $appliedLocalGetters = $getters->count() > 0;
                 if (!$appliedLocalGetters && \array_key_exists(Getter::class, $clsAttrs)) {
-                    $getters = static::configurePropertyAccessors($property, Getter::class, $clsAttrs);
+                    $getters = static::setupPropertyAccessors($property, Getter::class, $clsAttrs);
                 }
                 $config->addGetters($getters);
                 // Do not apply class level attributes if we configured any accessor already
@@ -112,7 +109,7 @@ final class Lombok
                 // That let's us to set subset of class attributes to a differently annotated
                 // property while still apply all the class attributes to remaining properties.
                 $setterClsAnnotations = $appliedLocalGetters ? [] : $clsAttrs;
-                $setters = static::configurePropertyAccessors($property, Setter::class,
+                $setters = static::setupPropertyAccessors($property, Setter::class,
                     $setterClsAnnotations);
                 $config->addSetters($setters);
             }
@@ -147,10 +144,10 @@ final class Lombok
      * @param \ReflectionAttribute[] $clsAnnotations
      *
      * @throws \Lombok\Exceptions\PublicPropertyException
+     * @throws \Lombok\Exceptions\StaticPropertyException
      */
-    protected static function configurePropertyAccessors(\ReflectionProperty $property,
-                                                         string              $attrClass,
-                                                         array               $clsAnnotations = []): Accessors
+    protected static function setupPropertyAccessors(
+        \ReflectionProperty $property, string $attrClass, array $clsAnnotations = []): Accessors
     {
         $clsName = $property->getDeclaringClass()->getName();
         $propName = $property->getName();

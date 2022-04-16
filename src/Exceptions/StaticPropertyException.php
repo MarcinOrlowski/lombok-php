@@ -20,4 +20,5 @@ final class StaticPropertyException extends \Exception
         $message = \sprintf('Static properties are not supported: %1$s::%2$s', $cls, $propertyName);
         parent::__construct($message, $code, $previous);
     }
-}
+
+} // end of class

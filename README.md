@@ -93,5 +93,5 @@ class Entity extends \Lombok\Helper {
 ## License ##
 
 * Written and copyrighted &copy;2022 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
-* Lombok for PHP is open-sourced software licensed under
+* `Lombok PHP` is open-sourced software licensed under
   the [LGPL 3.0](https://opensource.org/licenses/LGPL-3.0)
