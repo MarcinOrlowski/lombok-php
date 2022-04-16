@@ -1,0 +1,34 @@
+##################################################################################
+#
+# Lombok PHP - Write less code!
+#
+# @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+# @copyright 2022 Marcin Orlowski
+# @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
+# @link      https://github.com/MarcinOrlowski/lombok-php
+#
+##################################################################################
+
+# Runs markdownlint on all *.md files
+
+name: "Markdown Lint"
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    # https://github.com/marketplace/actions/my-markdown-linter
+    - name: "Running markdown linter..."
+      uses: ruzickap/action-my-markdown-linter@v1
+      with:
+        exclude: vendor
+        config_file: .markdownlint.yaml.dist
