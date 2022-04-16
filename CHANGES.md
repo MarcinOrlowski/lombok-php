@@ -4,5 +4,5 @@
 
 # CHANGE LOG #
 
-* @dev
+* 1.0.0 (2022-04-16)
   * Initial release.
