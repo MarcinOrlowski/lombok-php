@@ -3,6 +3,8 @@
 
 /vendor/
 
+/composer.lock
+
 *~
 *.swp
 *.bak
