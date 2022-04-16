@@ -1,0 +1,17 @@
+/.idea/
+*.iml
+
+/vendor/
+
+/composer.lock
+
+*~
+*.swp
+*.bak
+
+/.pre-commit-config.yaml
+/phpstan.neon
+/phpunit.xml
+/.markdownlint.yaml
+
+/.phpunit.result.cache

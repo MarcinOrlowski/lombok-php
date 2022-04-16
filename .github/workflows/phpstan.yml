@@ -1,0 +1,52 @@
+##################################################################################
+#
+# Lombok PHP - Write less code!
+#
+# @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+# @copyright 2022 Marcin Orlowski
+# @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
+# @link      https://github.com/MarcinOrlowski/lombok-php
+#
+##################################################################################
+
+name: "Static Analysis"
+
+on:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+      - "dev"
+
+jobs:
+  check:
+    strategy:
+      # do not stop the workflow if single run failed
+      fail-fast: false
+      matrix:
+        # quotes are needed it is treated as a number and zero at decimal part is gone at runtime
+        php: ["8.0", "8.1"]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout repository..."
+        uses: actions/checkout@v2
+
+      # https://github.com/marketplace/actions/composer-php-actions
+      - name: "Installing dependencies..."
+        uses: php-actions/composer@v6
+        with:
+          version: 2
+          php_version: "${{ matrix.php }}"
+          dev: yes
+
+      # https://github.com/marketplace/actions/phpstan-php-actions
+      - name: "Running PHPStan..."
+        uses: php-actions/phpstan@v3
+        with:
+          configuration: "phpstan.neon.dist"
+          php_version: "${{ matrix.php }}"
+          # memory_limit: 16M

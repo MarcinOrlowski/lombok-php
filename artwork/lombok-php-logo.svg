@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1480"
+   height="370"
+   viewBox="0 0 391.58335 97.895827"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.1.2 (08b2f3d93c, 2022-04-05)"
+   sodipodi:docname="lombok-php-logo.svg"
+   inkscape:export-filename="/home/carlos/Desktop/lombok-php-logo.png"
+   inkscape:export-xdpi="68.650002"
+   inkscape:export-ydpi="68.650002"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title4925">Lombok-PHP Logo</title>
+  <defs
+     id="defs2">
+    <rect
+       x="154.52403"
+       y="273.21335"
+       width="175.01006"
+       height="18.995514"
+       id="rect135" />
+    <linearGradient
+       id="a"
+       gradientUnits="userSpaceOnUse"
+       x1="400.117"
+       x2="400.117"
+       y1="22.292999"
+       y2="715"
+       gradientTransform="matrix(0.74353016,0,0,0.6032942,-879.81718,-754.25945)">
+      <stop
+         offset=".018"
+         stop-color="#3bb6ff"
+         id="stop11838" />
+      <stop
+         offset=".302"
+         stop-color="#39afff"
+         id="stop11840" />
+      <stop
+         offset=".552"
+         stop-color="#36a3ff"
+         id="stop11842" />
+      <stop
+         offset=".717"
+         stop-color="#359fff"
+         id="stop11844" />
+      <stop
+         offset=".832"
+         stop-color="#3398ff"
+         id="stop11846" />
+      <stop
+         offset=".964"
+         stop-color="#3297ff"
+         id="stop11848" />
+    </linearGradient>
+    <linearGradient
+       id="a-1"
+       gradientUnits="userSpaceOnUse"
+       x1="400.117"
+       x2="400.117"
+       y1="22.292999"
+       y2="715"
+       gradientTransform="matrix(0.74353016,0,0,0.6032942,-879.81718,-754.25945)">
+      <stop
+         offset=".018"
+         stop-color="#3bb6ff"
+         id="stop11838-7" />
+      <stop
+         offset=".302"
+         stop-color="#39afff"
+         id="stop11840-8" />
+      <stop
+         offset=".552"
+         stop-color="#36a3ff"
+         id="stop11842-5" />
+      <stop
+         offset=".717"
+         stop-color="#359fff"
+         id="stop11844-7" />
+      <stop
+         offset=".832"
+         stop-color="#3398ff"
+         id="stop11846-4" />
+      <stop
+         offset=".964"
+         stop-color="#3297ff"
+         id="stop11848-1" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.0547013"
+     inkscape:cx="1031.6884"
+     inkscape:cy="211.64099"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g1276"
+     showgrid="false"
+     width="5600mm"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="3684"
+     inkscape:window-height="2123"
+     inkscape:window-x="156"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-rotation="0"
+     units="px" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Lombok-PHP Logo</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Marcin Orlowski</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Marcin Orlowski</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date>2022-04-14</dc:date>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-167)">
+    <g
+       transform="matrix(0.17250117,0,0,0.17250117,4.5947741,171.78761)"
+       id="g966"
+       style="stroke-width:1.39644">
+      <circle
+         style="fill:#6181b6;stroke-width:1.39644;fill-opacity:1"
+         cx="256"
+         cy="256"
+         r="256"
+         id="circle3822" />
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:#357abf;stroke-width:1.39644;fill-opacity:1"
+         d="m 512,256 c 0,-12.301 -0.887,-24.393 -2.564,-36.231 L 420.667,131 91.333,381 219.769,509.436 C 231.607,511.113 243.699,512 256,512 397.385,512 512,397.385 512,256 Z"
+         id="path3824" />
+      <g
+         id="g3854"
+         transform="matrix(0.38009637,0,0,0.38009637,71.114523,272.97698)"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3856"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3858"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3860"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3862"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3864"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3866"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3868"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3870"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3872"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3874"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3876"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3878"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3880"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3882"
+         style="stroke-width:1.39644" />
+      <g
+         id="g3884"
+         style="stroke-width:1.39644" />
+    </g>
+    <g
+       id="g1276"
+       transform="matrix(0.16757393,0,0,0.20652655,137.72233,206.62415)"
+       style="stroke-width:2.71697">
+      <g
+         id="g1083-0"
+         transform="matrix(0.85018457,0,0,1.0731787,-30.855874,-209.90633)"
+         style="stroke-width:2.84441;stroke:#fcfdff;stroke-opacity:0.30000001">
+        <text
+           xml:space="preserve"
+           style="font-size:249.691px;line-height:1.25;font-family:'a dripping marker';-inkscape-font-specification:'a dripping marker';letter-spacing:0px;word-spacing:0px;fill:#6181b6;fill-opacity:1;stroke-width:5.92289;stroke:#fcfdff;stroke-opacity:0.30000001"
+           x="-205.90884"
+           y="262.61465"
+           id="text5759"
+           transform="scale(1.1400301,0.87716979)"><tspan
+             sodipodi:role="line"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#6181b6;fill-opacity:1;stroke-width:5.92289;stroke:#fcfdff;stroke-opacity:0.30000001"
+             x="-205.90884"
+             y="262.61465"
+             id="tspan139593">Lombok PHP</tspan></text>
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-size:172.563px;line-height:1.25;font-family:'a dripping marker';-inkscape-font-specification:'a dripping marker';letter-spacing:0px;word-spacing:0px;fill:#6181b6;fill-opacity:1;stroke-width:5.65752;stroke:#ffffff;stroke-opacity:0.30000001"
+         x="-204.94281"
+         y="249.74249"
+         id="text5759-4"
+         transform="scale(1.130204,0.88479598)"><tspan
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#6181b6;fill-opacity:1;stroke-width:5.65752;stroke:#ffffff;stroke-opacity:0.30000001"
+           x="-204.94281"
+           y="249.74249"
+           id="tspan139593-1">Write less code!</tspan></text>
+      <g
+         inkscape:groupmode="layer"
+         id="layer2"
+         inkscape:label="laragon">
+        <g
+           id="g13120"
+           transform="matrix(0.70998675,0,0,0.70998675,-115.09381,409.42359)"
+           style="stroke-width:3.82679">
+          <path
+             d="m -861.02817,-601.80705 c 1.01123,-2.4735 43.83857,-121.6663 213.46755,-123.3314 0,0 71.12606,-65.2764 168.03778,0 0,0 26.29125,17.5318 40.71574,53.9345 0,0 127.24777,15.6615 147.84354,100.9915 0,0 42.924,140.5072 -102.43615,239.2242 0,0 -20.46939,13.29056 -34.10573,19.4683 0,0 -30.23194,0.0363 -36.4776,0 -13.30921,-0.0845 -21.71108,0 -33.80831,0 0,0 -18.58826,-5.39343 -19.35408,-22.6235 0,0 -1.56143,-59.9313 -1.14503,-70.2838 0,0 0.37175,-9.6949 -17.02686,-9.0916 0,0 -16.60303,-1.5505 -18.96,10.0328 0,0 -0.39412,61.8195 -0.76586,72.7814 0,0 -1.16732,18.23755 -26.29868,19.12438 0,0 -90.0861,2.20805 -102.05692,-1.24882 0,0 -20.87089,-3.13714 -22.43233,-19.14256 0,0 -17.02682,-81.5653 -20.0976,-106.9459 0,0 -57.22954,-25.7426 -68.82861,-32.6383 0,0 3.86636,83.1159 39.42943,118.2638 0,0 6.20104,4.4041 -6.19361,10.6602 0,0 -4.63222,3.1371 -9.29415,1.285 0,0 -152.55007,-69.1375 -96.36151,-245.601"
+             fill="url(#a)"
+             id="path11851"
+             style="fill:url(#a-1);stroke-width:14.9807" />
+          <path
+             d="m -690.26902,-488.10415 c 0,0 133.09191,61.5541 213.61621,-37.2655 0,0 65.20762,-69.0953 39.23611,-142.7997 0,0 45.72708,61.9402 -42.75297,158.0449 0.0224,0.018 -75.02222,85.6859 -210.09935,22.0203 z"
+             fill="#006699"
+             id="path11853"
+             style="stroke-width:14.9807" />
+          <path
+             d="m -742.93324,-502.62545 c 0,0 9.49485,35.6547 -19.70358,46.876 0,0 -66.41955,-22.2013 -59.70545,-63.2072 0,0 2.08189,-10.2318 14.44677,-3.9576 0,0 29.39918,12.9708 52.59733,16.7112 -0.0296,0 11.7701,0.8809 12.36493,3.5776 z"
+             fill="#cee6ff"
+             id="path11855"
+             style="stroke-width:14.9807" />
+          <path
+             d="m -761.37279,-562.89455 c 0,0 10.01535,-34.7316 47.80897,-32.5357 0,0 32.12051,0.6999 33.25811,36.5355 0,0.024 -25.30232,-53.5906 -81.06708,-3.9998 z"
+             fill="#006699"
+             id="path11857"
+             style="stroke-width:14.9807" />
+        </g>
+      </g>
+    </g>
+    <g
+       id="g1038"
+       transform="matrix(0.93847757,0,0,0.93847757,-26.882182,33.483873)"
+       style="stroke-width:1.06556">
+      <g
+         id="g8548"
+         transform="translate(11.27713)">
+        <g
+           id="g21172"
+           transform="translate(2.7687969,-12.182706)">
+          <text
+             xml:space="preserve"
+             style="font-size:11.4727px;line-height:1.25;font-family:'a dripping marker';-inkscape-font-specification:'a dripping marker';letter-spacing:0px;word-spacing:0px;fill:#6181b6;fill-opacity:1;stroke-width:1.12149"
+             x="344.11844"
+             y="219.51653"
+             id="text5759-7-4"
+             transform="translate(-1.8189963)"><tspan
+               sodipodi:role="line"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#6181b6;fill-opacity:1;stroke-width:1.12149"
+               x="344.11844"
+               y="219.51653"
+               id="tspan119569-6">by Marcin Orlowski</tspan></text>
+          <text
+             xml:space="preserve"
+             style="font-size:11.4727px;line-height:1.25;font-family:'a dripping marker';-inkscape-font-specification:'a dripping marker';letter-spacing:0px;word-spacing:0px;fill:#6181b6;fill-opacity:1;stroke-width:1.12148"
+             x="395.14478"
+             y="206.97794"
+             id="text5759-7"><tspan
+               sodipodi:role="line"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#6181b6;fill-opacity:1;stroke-width:1.12148"
+               x="395.14478"
+               y="206.97794"
+               id="tspan119569">library</tspan></text>
+          <g
+             id="g21157"
+             transform="translate(-3.3023169,112.30241)">
+            <ellipse
+               style="fill:#6793dc;fill-opacity:1;stroke:none;stroke-width:1.97349;stroke-linecap:square;stroke-miterlimit:10;stroke-opacity:1;paint-order:markers fill stroke"
+               id="path19713"
+               cx="379.323"
+               cy="90.067795"
+               rx="17.332672"
+               ry="7.4203558" />
+            <g
+               id="g6"
+               transform="matrix(1.8532918,0,0,1.8442169,143.31326,-899.20251)"
+               style="fill:#fcfdff;fill-opacity:1;stroke-width:9.0254">
+              <g
+                 id="g8519"
+                 transform="matrix(0.14755057,0,0,0.14755057,106.79228,463.72033)"
+                 style="fill:#fcfdff;fill-opacity:1;stroke-width:61.1681">
+                <path
+                   id="path8"
+                   d="m 99.974,479.48 h 14.204 c 4.1693,0.0354 7.1903,1.2367 9.063,3.604 1.8726,2.3674 2.491,5.6004 1.855,9.699 -0.24737,1.8727 -0.79504,3.71 -1.643,5.512 -0.8127,1.802 -1.9434,3.4273 -3.392,4.876 -1.7667,1.8373 -3.657,3.0033 -5.671,3.498 -2.014,0.49467 -4.0987,0.742 -6.254,0.742 h -6.36 l -2.014,10.07 h -7.367 l 7.579,-38.001 m 6.201,6.042 -3.18,15.9 c 0.21198,0.0353 0.42398,0.053 0.636,0.053 h 0.742 c 3.392,0.0353 6.2186,-0.30033 8.48,-1.007 2.2613,-0.74199 3.7806,-3.3213 4.558,-7.738 0.63597,-3.71 -3e-5,-5.8476 -1.908,-6.413 -1.8727,-0.56531 -4.2224,-0.83031 -7.049,-0.795 -0.42402,0.0353 -0.83035,0.053 -1.219,0.053 -0.35335,2e-5 -0.72435,2e-5 -1.113,0 l 0.053,-0.053"
+                   style="fill:#fcfdff;fill-opacity:1;stroke-width:61.1681" />
+                <path
+                   id="path10"
+                   d="m 133.49,469.36 h 7.314 l -2.067,10.123 h 6.572 c 3.604,0.0707 6.2893,0.81269 8.056,2.226 1.802,1.4134 2.332,4.0987 1.59,8.056 l -3.551,17.649 h -7.42 l 3.392,-16.854 c 0.35328,-1.7666 0.2473,-3.021 -0.318,-3.763 -0.56536,-0.74198 -1.7844,-1.113 -3.657,-1.113 l -5.883,-0.053 -4.346,21.783 h -7.314 l 7.632,-38.054"
+                   style="fill:#fcfdff;fill-opacity:1;stroke-width:61.1681" />
+                <path
+                   id="path12"
+                   d="m 162.81,479.48 h 14.204 c 4.1693,0.0354 7.1903,1.2367 9.063,3.604 1.8726,2.3674 2.491,5.6004 1.855,9.699 -0.24737,1.8727 -0.79503,3.71 -1.643,5.512 -0.8127,1.802 -1.9434,3.4273 -3.392,4.876 -1.7667,1.8373 -3.657,3.0033 -5.671,3.498 -2.014,0.49467 -4.0987,0.742 -6.254,0.742 h -6.36 l -2.014,10.07 h -7.367 l 7.579,-38.001 m 6.201,6.042 -3.18,15.9 c 0.21199,0.0353 0.42399,0.053 0.636,0.053 h 0.742 c 3.392,0.0353 6.2186,-0.30033 8.48,-1.007 2.2613,-0.74199 3.7806,-3.3213 4.558,-7.738 0.63597,-3.71 -3e-5,-5.8476 -1.908,-6.413 -1.8727,-0.56531 -4.2224,-0.83031 -7.049,-0.795 -0.42402,0.0353 -0.83035,0.053 -1.219,0.053 -0.35335,2e-5 -0.72435,2e-5 -1.113,0 l 0.053,-0.053"
+                   style="fill:#fcfdff;fill-opacity:1;stroke-width:61.1681" />
+              </g>
+            </g>
+          </g>
+          <text
+             xml:space="preserve"
+             style="font-size:11.4727px;line-height:1.25;font-family:'a dripping marker';-inkscape-font-specification:'a dripping marker';letter-spacing:0px;word-spacing:0px;fill:#6181b6;fill-opacity:1;stroke-width:1.12149"
+             x="341.87454"
+             y="206.97795"
+             id="text5759-7-7"><tspan
+               sodipodi:role="line"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Ubuntu Condensed';-inkscape-font-specification:'Ubuntu Condensed, ';fill:#6181b6;fill-opacity:1;stroke-width:1.12149"
+               x="341.87454"
+               y="206.97795"
+               id="tspan119569-7">the</tspan></text>
+        </g>
+      </g>
+    </g>
+    <rect
+       style="fill:#6181b6;fill-opacity:1;stroke:#6181b6;stroke-width:1.85208;stroke-linecap:square;stroke-miterlimit:10;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect5602"
+       width="0.0021126929"
+       height="87.101616"
+       x="298.18326"
+       y="173.09766" />
+    <flowRoot
+       transform="matrix(0.26458333,0,0,0.26458333,-70.84203,121.4291)"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       id="flowRoot1060"
+       xml:space="preserve"><flowRegion
+         id="flowRegion1062"><rect
+           y="469.90552"
+           x="764"
+           height="248"
+           width="1264"
+           id="rect1064" /></flowRegion><flowPara
+         id="flowPara1066" /></flowRoot>
+  </g>
+  <style
+     type="text/css"
+     id="style5764">
+	.st0{fill:#76C2AF;}
+	.st1{opacity:0.2;fill:#231F20;}
+	.st2{fill:#4F5D73;}
+	.st3{fill:#E0E0D1;}
+</style>
+</svg>
