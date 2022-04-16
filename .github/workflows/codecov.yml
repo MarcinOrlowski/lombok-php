@@ -61,3 +61,5 @@ jobs:
           files: coverage.xml
           flags: unittests
           fail_ci_if_error: true
+          patch: off
+          project: off
