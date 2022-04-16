@@ -1,0 +1,63 @@
+##################################################################################
+#
+# Lombok PHP - Write less code!
+#
+# @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+# @copyright 2022 Marcin Orlowski
+# @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
+# @link      https://github.com/MarcinOrlowski/lombok-php
+#
+##################################################################################
+
+name: "Coverage"
+
+on:
+  push:
+    branches:
+    - "master"
+  pull_request:
+    branches:
+    - "master"
+    - "dev"
+
+jobs:
+  coverage:
+    strategy:
+      # do not stop the workflow if single run failed
+      fail-fast: false
+      matrix:
+        # quotes are needed it is treated as a number and zero at decimal part is gone at runtime
+        php: ["8.0", "8.1"]
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout repository..."
+        uses: actions/checkout@v2
+
+      # https://github.com/marketplace/actions/composer-php-actions
+      - name: "Installing dependencies..."
+        uses: php-actions/composer@v6
+        with:
+          version: 2
+          php_version: "${{ matrix.php }}"
+          dev: yes
+
+      # https://github.com/marketplace/actions/phpunit-php-actions
+      - name: "Running PHPUnit with Coverage..."
+        uses: php-actions/phpunit@v3
+        with:
+          bootstrap: "vendor/autoload.php"
+          configuration: "phpunit.xml.dist"
+          php_extensions: "xdebug"
+          args: --coverage-clover coverage.xml
+        env:
+          XDEBUG_MODE: coverage
+
+      # https://github.com/marketplace/actions/codecov
+      - name: "Uploading coverage to CodeCov.io..."
+        uses: codecov/codecov-action@v1
+        with:
+          files: coverage.xml
+          flags: unittests
+          fail_ci_if_error: true
