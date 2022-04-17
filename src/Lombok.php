@@ -26,14 +26,6 @@ final class Lombok
      */
     protected static array $config = [];
 
-    /**
-     * Names of configured properties in given class. Used to prevent applying class level
-     * attributes to properties that are already configured on property level.
-     *
-     * @var array[int => string[]]
-     */
-    protected static array $configuredProperties = [];
-
     /* ****************************************************************************************** */
 
     /**

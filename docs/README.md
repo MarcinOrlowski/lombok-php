@@ -92,3 +92,7 @@ public function __call(string $methodName, array $args) {
   (as this simply makes little sense) nor `static` properties.
 * Visibility of generated accessors is always `public` in current implementation but more
   control is to be added shortly.
+* As all methods provided by `Lombok PHP` are handled on-the-fly, some IDEs or static analysers
+  cam complain about calling non-existing method. And because IDEs are not aware of `Lombok PHP`
+  yet, they will also not offer auto-completion for methods provided by `Lombok PHP`, so if you got
+  any idea how to address the latter, please speak up!

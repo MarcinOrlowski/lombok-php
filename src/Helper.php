@@ -21,6 +21,8 @@ abstract class Helper
 {
     /**
      * Configures Lombok for $this instance object.
+     *
+     * @return void
      */
     public function __construct()
     {
@@ -31,6 +33,8 @@ abstract class Helper
      * Removes Lombok's internal data related to $this instance object.
      *
      * NOTE: this step is MANDATORY or bad things will happen!
+     *
+     * @return void
      */
     public function __destruct()
     {
@@ -47,9 +51,6 @@ abstract class Helper
      * keyword, then this will never happen and can be safely ignored.
      *
      * @return mixed|void
-     *
-     * @throws \Lombok\Exceptions\PublicPropertyException
-     * @throws \Lombok\Exceptions\StaticPropertyException
      */
     public function __call(string $methodName, array $args)
     {
