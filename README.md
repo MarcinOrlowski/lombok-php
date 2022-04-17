@@ -35,6 +35,7 @@ scope and (target) functionality.
 * Less code to write and to maintain,
 * No more repetitive boilerplate code,
 * Can coexist with other attributes (i.e. [Doctrine](https://www.doctrine-project.org/), ORMs etc),
+* No code generation (all handled on-the-fly),
 * No additional dependencies,
 * Supports object cloning,
 * Production ready.

@@ -34,14 +34,13 @@ composer install marcin-orlowski/lombok-php
 ## Usage ##
 
 Now, further usage depends on type of annotations you wish to use. As PHP annotations do not
-"run" by themselves automagically, Lombok's initialization must be triggered from your code.
+work just by themselves automagically, you need to wire your classes with `Lombok PHP` yourself.
 
 ### Using helper class ###
 
 The simplest approach is to extend `\Lombok\Helper` class which will set it all up for you.
 
 ```php
-#[Setter, Getter]
 class Entity extends \Lombok\Helper {
     ...
 ```
@@ -87,11 +86,9 @@ public function __call(string $methodName, array $args) {
 
 ## Limitations ##
 
-* Due to how PHP annotations work, any class using `Lombok PHP` must either extend `LombokHelper`
-  class or initialize `Lombok PHP` manually as well as wire magic methods. See documentation
-  for more details.
+* Due to how PHP annotations work, any class using `Lombok PHP` must either extend provided
+  `\Lombok\Helper` class or as wire magic methods. See documentation for more details.
 * By design, `Lombok PHP` does not support accessors for properties with `public` visibility
-  (as this simply makes little sense).
-* Also `static` properties are not supported.
+  (as this simply makes little sense) nor `static` properties.
 * Visibility of generated accessors is always `public` in current implementation but more
   control is to be added shortly.
