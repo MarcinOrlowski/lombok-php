@@ -50,7 +50,7 @@ class Entity extends \Lombok\Helper {
 Alternatively, if use of `Lombok\Helper` is not possible, you need to implement the following
 methods:
 
-In your class' constructor call Lombok's `configure()` method to set your object up:
+In your class' constructor call Lombok's `construct()` method to set your object up:
 
 ```php
 public function __construct() {
