@@ -93,6 +93,8 @@ class Entity extends \Lombok\Helper {
 }
 ```
 
+[Click here](docs/README.md) to see how to set up `lombok-php` for your project!
+
 ## License ##
 
 * Written and copyrighted &copy;2022 by Marcin Orlowski <mail (#) marcinorlowski (.) com>

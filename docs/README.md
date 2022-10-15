@@ -26,7 +26,7 @@
 Add `Lombok PHP` to your project dependency list:
 
 ```php
-composer install marcin-orlowski/lombok-php
+composer require marcin-orlowski/lombok-php
 ```
 
 ---
