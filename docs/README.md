@@ -52,7 +52,7 @@ to approach that case.
 ### Manual wiring ###
 
 When your class extends `\Lombok\Helper` then it basically inherings `Helper`'s constructor
-and destructor implementations, which in turn calls `Lombok PHP`'s configuration methods. 
+and destructor implementations, which in turn calls `Lombok PHP`'s configuration methods.
 If your class has own constructor them you got two options. If you can do that, just extend
 `\Lombok\Helper` class but as first line of your constructor just call helper's one:
 
@@ -129,4 +129,4 @@ public function __call(string $methodName, array $args) {
   cam complain about calling non-existing method. And because IDEs are not aware of `Lombok PHP`
   yet, they will also not offer auto-completion for methods provided by `Lombok PHP`. If you bother
   create PHPDocs block with `@method` annotations for each magic method. Helper tool to generate
-  that will be available shortly. 
+  that will be available shortly.
