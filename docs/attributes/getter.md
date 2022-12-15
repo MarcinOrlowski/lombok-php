@@ -136,4 +136,4 @@ class Entity extends \Lombok\Helper
 }
 ```
 
-Original `getId()` method remain and no `Lombok PHP` accessor will be provided.
+Original `getId()` method remains and no `Lombok PHP` accessor is provided.

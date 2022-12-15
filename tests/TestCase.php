@@ -103,7 +103,7 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Draws random boolean value.
      *
-     * @param float $probability
+     * @throws \Exception
      */
     protected function getRandomBool(float $probability = 0.5): bool
     {

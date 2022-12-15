@@ -8,4 +8,4 @@
 * [« Documentation table of contents](../README.md)
 * [« Available attributes](README.md)
   * [Getter](getter.md)
-  * [Setter](saetter.md)
+  * [Setter](setter.md)

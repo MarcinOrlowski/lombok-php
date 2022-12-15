@@ -136,4 +136,4 @@ class Entity extends \Lombok\Helper
 }
 ```
 
-In this case original `setId()` method remain and no `Lombok PHP` accessor will be provided.
+In this case original `setId()` remains and no `Lombok PHP` accessor is provided.
