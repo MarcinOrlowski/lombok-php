@@ -2,7 +2,7 @@
   "name": "marcin-orlowski/lombok-php",
   "description": "Write less code!",
   "homepage": "https://github.com/MarcinOrlowski/lombok-php",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "keywords": [
     "lombok",
     "annotation",
@@ -17,7 +17,7 @@
   "authors": [
     {
       "name": "Marcin Orlowski",
-      "homepage": "http://MarcinOrlowski.com/"
+      "homepage": "https://MarcinOrlowski.com/"
     }
   ],
   "support": {
