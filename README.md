@@ -2,7 +2,7 @@
 
 ---
 
-[![Latest Stable Version](https://poser.pugx.org/marcin-orlowski/lombok-php/v)](https://packagist.org/packages/marcin-orlowski/laravel-api-response-builder)
+[![Latest Stable Version](https://poser.pugx.org/marcin-orlowski/lombok-php/v)](https://packagist.org/packages/marcin-orlowski/lombok-php)
 [![codecov](https://codecov.io/gh/MarcinOrlowski/lombok-php/branch/master/graph/badge.svg?token=MDOSOPKZ8C)](https://codecov.io/gh/MarcinOrlowski/lombok-php)
 [![License](https://poser.pugx.org/marcin-orlowski/lombok-php/license)](https://packagist.org/packages/marcin-orlowski/lombok-php)
 
@@ -25,6 +25,9 @@
 of [PHP attributes](https://www.php.net/manual/en/language.attributes.php) (feature
 [introduced by PHP 8.0](https://www.php.net/releases/8.0/)) and is intended to help you reduce
 boilerplate code in your project, by providing commonly used functionality you can easily apply.
+
+The main goal is to privide all the functionality **at runtime**, without any intermediate
+steps needed and **without code generation**.
 
 And yes, the project name is shamelessly borrowed from the beloved Java's
 [Project Lombok](https://projectlombok.org/). It is not affiliated in any way though - it's just a

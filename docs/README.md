@@ -68,7 +68,7 @@ public function __construct() {
 **NOTE:** Once `Lombok PHP::__construct()` is called, your constructor can call any of the
 `Lombok PHP`'s provided methods right away!
 
-Them you need to do the same for destructor. If you extend `\Lombok\Helper` then your altered
+Then you need to do the same for destructor. If you do not extend `\Lombok\Helper` then your altered
 code should look like this:
 
 ```php
@@ -101,14 +101,16 @@ public function __destruct() {
 }
 ```  
 
-**IMPORTANT** This step is crucial as `Lombok PHP` must know when object it supports is
-being destroyed and to remove its internal configuration. It's because the `spl_object_id()`
-is used internally to identify each object and returned identifier is only guaranteed to be
-unique during object's lifetime. The method is explicitly documented to reuse identifiers
-of destroyed objects for new ones, so it could lead to unexpected results if old object
-configuration is still in place without the cleanup step.
+**IMPORTANT** You **MUST** have destructor! This step is crucial as `Lombok PHP` must know
+when object it supports is being destroyed and to remove its internal configuration. It's
+because the `spl_object_id()` is used internally to identify each object and returned
+identifier is only guaranteed to be unique during object's lifetime. The method is
+explicitly documented to reuse identifiers of destroyed objects for new ones, so it
+could lead to unexpected results if old object configuration is still in place without
+the cleanup step.
 
-Finally the `__call()` is need to let `Lombok PHP` do the heavy lifting.
+Finally you must implement the `__call()` method, which is needed to let `Lombok PHP`
+do the heavy lifting with all the magic methods it implements:
 
 ```php
 public function __call(string $methodName, array $args) {
