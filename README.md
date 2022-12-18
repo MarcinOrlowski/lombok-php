@@ -80,7 +80,7 @@ class Entity {
 }
 ```
 
-Using `Lombok PHP`:
+Using `Lombok PHP` (inheritance from `\Lombok\Helper` is helpful but [optional](docs/README.md#manual-wiring)):
 
 ```php
 use Lombok\Getter;
@@ -96,7 +96,7 @@ class Entity extends \Lombok\Helper {
 }
 ```
 
-[Click here](docs/README.md) to see how to set up `lombok-php` for your project!
+[Click here](docs/README.md) to see setup instruction and all the technical details.
 
 ## License ##
 
