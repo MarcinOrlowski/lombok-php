@@ -36,8 +36,7 @@ class OtherTestEntity extends \Lombok\Helper
     protected \DateTime $stamp;
 
     #[Setter, Getter]
-    /** @var mixed */
-    protected $mixed;
+    protected mixed $mixed;
 
     #[Setter, Getter]
     protected string|int $union;
