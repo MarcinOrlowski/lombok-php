@@ -36,7 +36,10 @@ class OtherTestEntity extends \Lombok\Helper
     protected \DateTime $stamp;
 
     #[Setter, Getter]
-    /** @var mixed */
+    /**
+     * @var mixed
+     * @phpstan-ignore-next-line
+     * */
     protected $mixed;
 
     #[Setter, Getter]

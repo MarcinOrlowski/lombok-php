@@ -33,28 +33,28 @@ composer require marcin-orlowski/lombok-php
 
 ## Usage ##
 
-Now, further usage depends on type of annotations you wish to use. As PHP annotations do not
-work just by themselves automagically, you need to connect your classes with `Lombok PHP` yourself
-to let all the automation happen.
+Now, further usage depends on the type of annotations you wish to use. As PHP annotations do not
+work just by themselves automatically, you need to connect your classes with `Lombok PHP` yourself
+to allow the automation to occur.
 
 ### Using helper class ###
 
-The simplest approach is to extend `\Lombok\Helper` class which will set it all up for you.
+The simplest approach is to extend the `\Lombok\Helper` class which will set it all up for you.
 
 ```php
 class Entity extends \Lombok\Helper {
     ...
 ```
 
-If your class implements own `__construct()` method, see [Manual wiring](#manual-wiring) for how
+If your class implements its own `__construct()` method, see [Manual wiring](#manual-wiring) for how
 to approach that case.
 
 ### Manual wiring ###
 
-When your class extends `\Lombok\Helper` then it basically inherings `Helper`'s constructor
-and destructor implementations, which in turn calls `Lombok PHP`'s configuration methods.
-If your class has own constructor them you got two options. If you can do that, just extend
-`\Lombok\Helper` class but as first line of your constructor just call helper's one:
+When your class extends `\Lombok\Helper`, it essentially inherits `Helper`'s constructor and
+destructor implementations, which in turn call `Lombok PHP`'s configuration methods. If your class
+has its own constructor then you have two options. If possible, simply extend the `\Lombok\Helper`
+class and as the first line of your constructor, call the helper's constructor:
 
 ```php
 public function __construct() {
@@ -65,11 +65,11 @@ public function __construct() {
 }
 ```
 
-**NOTE:** Once `Lombok PHP::__construct()` is called, your constructor can call any of the
-`Lombok PHP`'s provided methods right away!
+**NOTE:** Once `Lombok PHP::__construct()` is called, your constructor can call any of
+the `Lombok PHP`'s provided methods right away!
 
-Then you need to do the same for destructor. If you do not extend `\Lombok\Helper` then your altered
-code should look like this:
+Then you need to do the same for the destructor. If you do not extend `\Lombok\Helper`, then your
+altered code should look like this:
 
 ```php
 public function __destruct() {
@@ -80,11 +80,11 @@ public function __destruct() {
 }
 ```
 
-In majority of cases you should be able to do that and that should be perfectly sufficient.
-Alternatively, if use of `Lombok\Helper` is not possible, you need to implement the following
+In the majority of cases, you should be able to do that and it should be perfectly sufficient.
+Alternatively, if the use of `Lombok\Helper` is not possible, you need to implement the following
 methods:
 
-In your class' constructor call Lombok's `construct()` method to set your object up:
+In your class' constructor, call Lombok's `construct()` method to set your object up:
 
 ```php
 public function __construct() {
@@ -101,16 +101,15 @@ public function __destruct() {
 }
 ```  
 
-**IMPORTANT** You **MUST** have destructor! This step is crucial as `Lombok PHP` must know
-when object it supports is being destroyed and to remove its internal configuration. It's
-because the `spl_object_id()` is used internally to identify each object and returned
-identifier is only guaranteed to be unique during object's lifetime. The method is
-explicitly documented to reuse identifiers of destroyed objects for new ones, so it
-could lead to unexpected results if old object configuration is still in place without
-the cleanup step.
+**IMPORTANT**: You **MUST** have a destructor! This step is crucial as `Lombok PHP` needs to know
+when the object it supports is being destroyed in order to remove its internal configuration. This
+is because the `spl_object_id()` method is used internally to identify each object, and the returned
+identifier is only guaranteed to be unique during the object's lifetime. The method is explicitly
+documented to reuse identifiers of destroyed objects for new ones, so it could lead to unexpected
+results if the old object's configuration remains in place without the cleanup step.
 
-Finally you must implement the `__call()` method, which is needed to let `Lombok PHP`
-do the heavy lifting with all the magic methods it implements:
+Finally, you must implement the `__call()` method, which is needed to allow `Lombok PHP` to handle
+all the magic methods it implements:
 
 ```php
 public function __call(string $methodName, array $args) {
@@ -122,13 +121,12 @@ public function __call(string $methodName, array $args) {
 
 ## Limitations ##
 
-* Due to how PHP annotations work, any class using `Lombok PHP` must either extend provided
-  `\Lombok\Helper` class or as wire magic methods.
-* By design, `Lombok PHP` does not support accessors for properties with neither `public` visibility
-  nor `static` properties.
-* Visibility of generated accessors is currently always `public` in current implementation.
-* As all methods provided by `Lombok PHP` are handled on-the-fly, some IDEs or static analysers
-  cam complain about calling non-existing method. And because IDEs are not aware of `Lombok PHP`
-  yet, they will also not offer auto-completion for methods provided by `Lombok PHP`. If you bother
-  create PHPDocs block with `@method` annotations for each magic method. Helper tool to generate
-  that will be available shortly.
+* Due to the nature of PHP annotations, any class using `Lombok PHP` must either extend the
+  provided `\Lombok\Helper` class or wire magic methods manually.
+* By design, `Lombok PHP` does not support accessors for properties with either `public` visibility
+  or `static` properties.
+* The visibility of generated accessors is currently always `public` in the current implementation.
+* As all methods provided by `Lombok PHP` are handled on-the-fly, some IDEs or static analyzers may
+  complain about calling non-existing methods. Since IDEs are not yet aware of `Lombok PHP`, they
+  will also not offer auto-completion for methods provided by `Lombok PHP`. If this bothers you,
+  create a PHPDocs block with `@method` annotations for each magic method.

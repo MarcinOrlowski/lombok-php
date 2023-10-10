@@ -80,7 +80,8 @@ class Entity {
 }
 ```
 
-Using `Lombok PHP` (inheritance from `\Lombok\Helper` is helpful but [optional](docs/README.md#manual-wiring)):
+Using `Lombok PHP` (inheritance from `\Lombok\Helper` is helpful
+but [optional](docs/README.md#manual-wiring)):
 
 ```php
 use Lombok\Getter;
@@ -100,6 +101,6 @@ class Entity extends \Lombok\Helper {
 
 ## License ##
 
-* Written and copyrighted &copy;2022 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
+* Written and copyrighted &copy;2022-2023 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
 * `Lombok PHP` is open-sourced software licensed under
   the [LGPL 3.0](https://opensource.org/licenses/LGPL-3.0)
