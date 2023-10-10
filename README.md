@@ -21,23 +21,24 @@
 
 ## Introduction ##
 
-`Lombok PHP` is a package providing growing set
-of [PHP attributes](https://www.php.net/manual/en/language.attributes.php) (feature
-[introduced by PHP 8.0](https://www.php.net/releases/8.0/)) and is intended to help you reduce
-boilerplate code in your project, by providing commonly used functionality you can easily apply.
+`Lombok PHP` is a package offering a growing set
+of [PHP attributes](https://www.php.net/manual/en/language.attributes.php) (a
+feature [introduced in PHP 8.0](https://www.php.net/releases/8.0/)) designed to help reduce
+boilerplate code in your project by providing commonly used functionality that can be easily
+applied.
 
-The main goal is to privide all the functionality **at runtime**, without any intermediate
-steps needed and **without code generation**.
+The main goal is to provide all the functionality **at runtime**, without any intermediate steps
+needed and **without code generation**.
 
-And yes, the project name is shamelessly borrowed from the beloved Java's
-[Project Lombok](https://projectlombok.org/). It is not affiliated in any way though - it's just a
-scope and (target) functionality.
+And yes, the project name is shamelessly borrowed from the beloved
+Java's [Project Lombok](https://projectlombok.org/). However, it is not affiliated in any way; it's
+merely a nod to the scope and (target) functionality.
 
 ## Benefits ##
 
-* Less code to write and to maintain,
+* Less code to write and maintain,
 * No more repetitive boilerplate code,
-* Can coexist with other attributes (i.e. [Doctrine](https://www.doctrine-project.org/), ORMs etc),
+* Can coexist with other attributes (i.e., [Doctrine](https://www.doctrine-project.org/), etc.),
 * No code generation (all handled on-the-fly),
 * No additional dependencies,
 * Supports object cloning,
