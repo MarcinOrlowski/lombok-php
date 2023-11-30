@@ -128,4 +128,16 @@ class AccessorsTest extends TestCase
         new TestEntityWithPublicProperties();
     }
 
+    public function testExplicitMixedTypehint(): void
+    {
+        $obj = new TestEntity();
+        $val = true;
+        $obj->setMixed($val);
+        $this->assertEquals($val, $obj->getMixed());
+        $obj->setMixed($val);
+        $this->assertEquals($val, $obj->getMixed());
+        $obj->setMixed($val);
+        $this->assertEquals($val, $obj->getMixed());
+    }
+
 }
