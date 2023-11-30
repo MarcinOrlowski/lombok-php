@@ -27,7 +27,7 @@ jobs:
       fail-fast: false
       matrix:
         # quotes are needed it is treated as a number and zero at decimal part is gone at runtime
-        php: [ "8.0", "8.1", "8.2" ]
+        php: [ "8.0", "8.1", "8.2", "8.3" ]
 
     runs-on: ubuntu-latest
 
