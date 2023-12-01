@@ -17,6 +17,7 @@ use Lombok\Attributes\ClassConfig;
 use Lombok\Attributes\Contracts\AccessorContract;
 use Lombok\Exceptions\MethodAlreadyExistsException;
 use Lombok\Exceptions\PublicPropertyException;
+use Lombok\Exceptions\ReadonlyPropertyException;
 use Lombok\Exceptions\StaticPropertyException;
 
 final class Lombok
@@ -148,10 +149,14 @@ final class Lombok
         // Get all attributes of required $attrClass only (assuming any is set for given property)
         $propAttrs = $property->getAttributes($attrClass);
 
+        $isReadOnly = \version_compare(PHP_VERSION, '8.1', '>=')
+            ? $property->isReadOnly()
+            : false;
+
         if (empty($propAttrs)) {
             // For class level attributes we silently skip not supported property types
             // instead of throwing an exception.
-            if (!($property->isStatic() || $property->isPublic())) {
+            if (!($property->isStatic() || $property->isPublic() || $isReadOnly)) {
                 // The property does not have any attributes we look for. Let's check if we
                 // one we are looking for set on class level and then apply it to the property.
                 $clsAttr = $clsAnnotations[ $attrClass ] ?? null;
@@ -177,6 +182,12 @@ final class Lombok
             if ($property->isPublic()) {
                 throw new PublicPropertyException($clsName, $propName);
             }
+
+            // Read-only properties cannot have setters
+            if ($attrClass == Setter::class && $isReadOnly) {
+                throw new ReadonlyPropertyException($clsName, $propName);
+            }
+
 
             foreach ($propAttrs as $propAttr) {
                 /**

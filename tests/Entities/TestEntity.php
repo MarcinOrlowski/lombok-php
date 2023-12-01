@@ -37,7 +37,7 @@ class TestEntity extends \Lombok\Helper
      * @var mixed
      * @phpstan-ignore-next-line
      */
-    protected $mixed;
+    protected $noTypehint;
 
     #[Setter, Getter]
     protected string|int $union;
@@ -50,4 +50,7 @@ class TestEntity extends \Lombok\Helper
 
     #[Setter, Getter]
     protected bool|string $booleanOrString = false;
+
+    #[Setter, Getter]
+    protected mixed $mixed;
 }

@@ -16,15 +16,15 @@
 
 ## Description ##
 
-Provides a setter method for all non-public and non-static properties of the class. It can be
-applied to each property individually or to the whole class.
+Provides a setter method for all non-public, non-readonly and non-static properties of
+the non-readonly class. It can be applied to each property individually or to the whole class.
 
 ## Notes ##
 
 * Each setter provided will return an instance of the object for easy chaining.
 
-* While mixing accessor attributes at the class scope and property scope, the class scope will *
-  *only** be applied if no property attributes were used. This allows for setting a wider scope for
+* While mixing accessor attributes at the class scope and property scope, the class scope will
+  **only** be applied if no property attributes were used. This allows for setting a wider scope for
   the whole class while narrowing it for specific properties. For example, if you
   assign `#[Setter, Getter]` to your `class`, but `#[Getter]` to a specific property, that property
   will NOT have a setter added.
@@ -40,6 +40,13 @@ applied to each property individually or to the whole class.
 * All method names provided use the [SnakeCase](https://en.wikipedia.org/wiki/Snake_case) naming
   convention regardless of the property name's style. For example, `myProperty` will be transformed
   to `setMyProperty()` and `my_property` will be transformed to `setMyProperty()`.
+
+* Attempt to apply `#[Setter]` to a `readonly` attribute will throw an exception, however when
+  applied to the whole class, all "readonly" properties will be omitted silently.
+
+* When using `Helper` base class, you need to use `LombokReadonly` base class if you want to add
+  `Lombok` support to your `readonly` class. This does not apply to properties hinted with
+  "readonly".
 
 ## Examples ##
 
