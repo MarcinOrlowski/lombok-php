@@ -21,5 +21,5 @@ use Lombok\Setter;
 class TestEntityWithReadonlyPropertiesAndAttributes extends \Lombok\Helper
 {
     #[Setter, Getter]
-    protected readonly int $number;
+    protected readonly int $number;  // @phpstan-ignore-line
 }

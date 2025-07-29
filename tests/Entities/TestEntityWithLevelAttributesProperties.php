@@ -18,5 +18,6 @@ use Lombok\Setter;
 #[Setter, Getter]
 class TestEntityWithLevelAttributesProperties extends \Lombok\Helper
 {
+    /** @phpstan-ignore-next-line */
     protected readonly int $number;
 }
