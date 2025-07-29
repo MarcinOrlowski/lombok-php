@@ -28,7 +28,7 @@ boilerplate code in your project by providing commonly used functionality that c
 applied.
 
 The main goal is to provide all the functionality **at runtime**, without any intermediate steps
-needed and **without code generation**.
+needed and **without generating any additional code files**.
 
 And yes, the project name is shamelessly borrowed from the beloved
 Java's [Project Lombok](https://projectlombok.org/). However, it is not affiliated in any way; it's
@@ -102,6 +102,6 @@ class Entity extends \Lombok\Helper {
 
 ## License ##
 
-* Written and copyrighted &copy;2022-2023 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
+* Written and copyrighted &copy;2022-2025 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
 * `Lombok PHP` is open-sourced software licensed under
   the [LGPL 3.0](https://opensource.org/licenses/LGPL-3.0)

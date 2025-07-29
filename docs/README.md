@@ -130,3 +130,10 @@ public function __call(string $methodName, array $args) {
   complain about calling non-existing methods. Since IDEs are not yet aware of `Lombok PHP`, they
   will also not offer auto-completion for methods provided by `Lombok PHP`. If this bothers you,
   create a PHPDocs block with `@method` annotations for each magic method.
+
+
+## License
+
+* Written and copyrighted &copy;2022-2025 by Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+* `Lombok PHP` is open-source software licensed under
+  the [MIT license](http://opensource.org/licenses/MIT)
