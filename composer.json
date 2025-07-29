@@ -39,9 +39,21 @@
     "phpstan/phpstan": "^1.5"
   },
   "scripts": {
-    "test": "vendor/bin/phpunit -c phpunit.xml -c phpunit.xml.dist",
-    "phpstan": "vendor/bin/phpstan analyze -c phpstan.neon.dist",
-    "lint": "@composer phpstan",
-    "mdlint": "markdownlint -c .markdownlint.yaml.dist docs *.md --ignore LICENSE.md"
+    "test": [
+      "Composer\\Config::disableProcessTimeout",
+      "vendor/bin/phpunit -c phpunit.xml -c phpunit.xml.dist"
+    ],
+    "phpstan": [
+      "Composer\\Config::disableProcessTimeout",
+      "vendor/bin/phpstan analyze -c phpstan.neon.dist --no-progress --no-interaction src/ tests/"
+    ],
+    "lint": [
+      "Composer\\Config::disableProcessTimeout",
+      "@composer phpstan"
+    ],
+    "mdlint": [
+      "Composer\\Config::disableProcessTimeout",
+      "markdownlint --config .markdownlint.yaml.dist --ignore vendor --ignore LICENSE.md **/*.md .github/**/*.md docs README.md"
+    ]
   }
 }
