@@ -13,16 +13,14 @@ declare(strict_types=1);
 namespace Lombok;
 
 /**
- * Helper class that wires Lombok internals for the current object.
+ * Helper class that wires Lombok internals for the current **READONLY** class.
  *
- * Extending this class is RECOMMENDED way of using Lombok in your project.
+ * Use this class when adding Lombok to "readonly" annotated class.
  */
-abstract class Helper
+abstract readonly class HelperReadonly
 {
     /**
      * Configures Lombok for $this instance object.
-     *
-     * @return void
      */
     public function __construct()
     {
@@ -33,8 +31,6 @@ abstract class Helper
      * Removes Lombok's internal data related to $this instance object.
      *
      * NOTE: this step is MANDATORY or bad things will happen!
-     *
-     * @return void
      */
     public function __destruct()
     {

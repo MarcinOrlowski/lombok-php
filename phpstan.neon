@@ -1,0 +1,32 @@
+##################################################################################
+#
+# Lombok PHP - Write less code!
+#
+# @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+# @copyright ©2022-2026 Marcin Orlowski
+# @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
+# @link      https://github.com/MarcinOrlowski/lombok-php
+#
+##################################################################################
+
+parameters:
+  # https://phpstan.org/user-guide/rule-levels
+  level: max
+  treatPhpDocTypesAsCertain: false
+  paths:
+    - src/
+    - tests/
+  excludePaths:
+    # Test entity with readonly class extending non-readonly - intentional for testing
+    - tests/Entities/TestEntityWithReadonlyClassPropertyAttributes.php
+  ignoreErrors:
+    - '#Call to an undefined method LombokTest\\.*#'
+    # Test entities with intentional issues for testing edge cases
+    -
+      message: '#has an uninitialized readonly property#'
+      paths:
+        - tests/Entities/ReadOnlyClassWithClassLevelAttributes.php
+        - tests/Entities/ReadOnlyClassWithPropertyLevelAttributes.php
+    -
+      message: '#should return string but returns mixed#'
+      path: tests/Entities/TestEntityWithGetterNameConflictWithClassAttributes.php

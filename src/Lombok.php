@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Lombok PHP - Write less code!
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2022 Marcin Orlowski
+ * @copyright ©2022-2026 Marcin Orlowski
  * @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
  * @link      https://github.com/MarcinOrlowski/lombok-php
  */
@@ -17,18 +17,21 @@ use Lombok\Attributes\ClassConfig;
 use Lombok\Attributes\Contracts\AccessorContract;
 use Lombok\Exceptions\MethodAlreadyExistsException;
 use Lombok\Exceptions\PublicPropertyException;
+use Lombok\Exceptions\ReadonlyPropertyException;
 use Lombok\Exceptions\StaticPropertyException;
 
 final class Lombok
 {
     /**
-     * @var array[int => ClassConfig]
+     * @var array<int, ClassConfig>
      */
     protected static array $config = [];
 
     /* ****************************************************************************************** */
 
     /**
+     * @param array<int, mixed> $args
+     *
      * @return mixed|void
      *
      * @throws \BadMethodCallException
@@ -113,10 +116,8 @@ final class Lombok
      */
     public static function destruct(object $targetObj): void
     {
-        if (static::$config !== null) {
-            $id = \spl_object_id($targetObj);
-            unset(static::$config[ $id ]);
-        }
+        $id = \spl_object_id($targetObj);
+        unset(static::$config[ $id ]);
     }
 
     /* ****************************************************************************************** */
@@ -125,10 +126,10 @@ final class Lombok
      * Scans $classProperty property's attributes and configures necessary handlers
      * for supported attributes (like #[Setter] or #[Getter], etc.)
      *
-     * @param object                 $targetObj
-     * @param \ReflectionProperty    $property  Property to be inspected.
-     * @param string                 $attrClass Attribute class to look for i.e. Getter::class.
-     * @param \ReflectionAttribute[] $clsAnnotations
+     * @param object                                      $targetObj
+     * @param \ReflectionProperty                         $property       Property to be inspected.
+     * @param string                                      $attrClass      Attribute class to look for i.e. Getter::class.
+     * @param array<string, \ReflectionAttribute<object>> $clsAnnotations
      *
      * @return \Lombok\Attributes\Accessors
      *
@@ -148,10 +149,14 @@ final class Lombok
         // Get all attributes of required $attrClass only (assuming any is set for given property)
         $propAttrs = $property->getAttributes($attrClass);
 
+        $isReadOnly = \version_compare(PHP_VERSION, '8.1', '>=')
+            ? $property->isReadOnly()
+            : false;
+
         if (empty($propAttrs)) {
             // For class level attributes we silently skip not supported property types
             // instead of throwing an exception.
-            if (!($property->isStatic() || $property->isPublic())) {
+            if (!($property->isStatic() || $property->isPublic() || $isReadOnly)) {
                 // The property does not have any attributes we look for. Let's check if we
                 // one we are looking for set on class level and then apply it to the property.
                 $clsAttr = $clsAnnotations[ $attrClass ] ?? null;
@@ -178,13 +183,19 @@ final class Lombok
                 throw new PublicPropertyException($clsName, $propName);
             }
 
+            // Read-only properties cannot have setters
+            if ($attrClass == Setter::class && $isReadOnly) {
+                throw new ReadonlyPropertyException($clsName, $propName);
+            }
+
+
             foreach ($propAttrs as $propAttr) {
                 /**
-                 * @var \ReflectionAttribute $propAttr
+                 * @var \ReflectionAttribute<object> $propAttr
                  *
                  * Lombok's attribute accessor MUST implement AccessorContract.
                  * There's no check for this as of now simply for performance reasons.
-                 * @var AccessorContract     $propAttrInstance
+                 * @var AccessorContract             $propAttrInstance
                  */
                 $propAttrInstance = $propAttr->newInstance();
                 $methodName = $propAttrInstance->getFunctionName($property);

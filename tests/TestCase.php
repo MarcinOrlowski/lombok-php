@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Lombok PHP - Write less code!
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2022 Marcin Orlowski
+ * @copyright ©2022-2026 Marcin Orlowski
  * @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
  * @link      https://github.com/MarcinOrlowski/lombok-php
  */
@@ -116,9 +116,9 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Calls protected method of $object, passing optional array of arguments.
      *
-     * @param object|string $objectOrClass Object to call $methodName on or name of the class.
-     * @param string        $methodName    Name of method to call.
-     * @param array         $args          Optional array of arguments (empty array for no args).
+     * @param object|string     $objectOrClass Object to call $methodName on or name of the class.
+     * @param string            $methodName    Name of method to call.
+     * @param array<int, mixed> $args          Optional array of arguments (empty array for no args).
      *
      * @return mixed
      *

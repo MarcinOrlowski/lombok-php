@@ -121,12 +121,22 @@ public function __call(string $methodName, array $args) {
 
 ## Limitations ##
 
+* While `Lombok PHP` does its magic at runtime, there is no possibility it to "announce" its magic
+  methods back the PHP, so no "magic method" can i.e. implement an interface method, that it
+  otherwise would implement if it was a real method. That's most significant limitation of PHP here.
 * Due to the nature of PHP annotations, any class using `Lombok PHP` must either extend the
   provided `\Lombok\Helper` class or wire magic methods manually.
-* By design, `Lombok PHP` does not support accessors for properties with either `public` visibility
-  or `static` properties.
+* By design, `Lombok PHP` does not support accessors for properties that has either `public`
+  visibility or is `static`.
 * The visibility of generated accessors is currently always `public` in the current implementation.
 * As all methods provided by `Lombok PHP` are handled on-the-fly, some IDEs or static analyzers may
   complain about calling non-existing methods. Since IDEs are not yet aware of `Lombok PHP`, they
   will also not offer auto-completion for methods provided by `Lombok PHP`. If this bothers you,
   create a PHPDocs block with `@method` annotations for each magic method.
+
+
+## License ##
+
+* Written and copyrighted &copy;2022-2026 by Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+* `Lombok PHP` is open-source software licensed under
+  the [MIT license](http://opensource.org/licenses/MIT)

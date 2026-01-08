@@ -13,15 +13,13 @@ declare(strict_types=1);
 namespace LombokTest\Entities;
 
 use Lombok\Getter;
+use Lombok\Setter;
 
-class TestEntityWithGetterNameConflict extends \Lombok\Helper
+/**
+ * Test entity with "readonly" property and attributes at property level.
+ */
+class TestEntityWithReadonlyPropertiesAndAttributes extends \Lombok\Helper
 {
-    #[Getter]
-    protected string $text = '';
-
-    public function getText(): void
-    {
-        // empty
-    }
-
+    #[Setter, Getter]
+    protected readonly int $number;  // @phpstan-ignore-line
 }

@@ -3,7 +3,7 @@
 # Lombok PHP - Write less code!
 #
 # @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
-# @copyright 2022 Marcin Orlowski
+# @copyright ©2022-2026 Marcin Orlowski
 # @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
 # @link      https://github.com/MarcinOrlowski/lombok-php
 #
@@ -22,8 +22,6 @@
 # * Ensure you got Python installed
 # * Install pre-commit: `pip install pre-commit`
 # * Go to your project source code root directory
-# * Copy provided config file template:
-#    `cp .pre-commit-config.yaml.dist .pre-commit-config.yaml`
 # * Plug hooks into Git pipeline: `pre-commit install`
 #
 # From now on, pre-commit hooks will be triggered on every commit. To temporarily disable them,
@@ -77,6 +75,36 @@ repos:
       - id: end-of-file
         exclude_types: [ 'xml' ]
         args: [ '--fix=yes' ]
+
+  - repo: https://github.com/digitalpulp/pre-commit-php.git
+    rev: 1.4.0
+    hooks:
+      # Runs PHPStan analyser
+      - id: php-stan
+        files: \.(php)$
+
+  - repo: https://github.com/hukkin/mdformat
+    rev: 0.7.22  # Use the ref you want to point at
+    hooks:
+      - id: mdformat
+        # Optionally add plugins
+        additional_dependencies:
+          - mdformat-gfm
+          - mdformat-black
+          -
+  # https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0  # Use the ref you want to point at
+    hooks:
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: trailing-whitespace
+      - id: check-json
+      - id: check-yaml
+      - id: check-toml
+      - id: pretty-format-json
+        args: [ '--autofix', '--no-sort-keys' ]
 
   - repo: https://github.com/digitalpulp/pre-commit-php.git
     rev: 1.4.0

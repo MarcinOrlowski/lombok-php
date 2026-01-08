@@ -3,7 +3,7 @@
 # Lombok PHP - Write less code!
 #
 # @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
-# @copyright 2022 Marcin Orlowski
+# @copyright ©2022-2026 Marcin Orlowski
 # @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
 # @link      https://github.com/MarcinOrlowski/lombok-php
 #
@@ -29,7 +29,7 @@ jobs:
       fail-fast: false
       matrix:
         # quotes are needed it is treated as a number and zero at decimal part is gone at runtime
-        php: ["8.0", "8.1"]
+        php: [ "8.0", "8.1", "8.2", "8.3", "8.4", "8.5" ]
 
     runs-on: ubuntu-latest
 
@@ -50,7 +50,7 @@ jobs:
         uses: php-actions/phpunit@v3
         with:
           bootstrap: "vendor/autoload.php"
-          configuration: "phpunit.xml.dist"
+          configuration: "phpunit.xml"
           php_extensions: "xdebug"
           args: --coverage-clover coverage.xml
         env:

@@ -12,12 +12,12 @@ declare(strict_types=1);
 
 namespace Lombok\Exceptions;
 
-final class StaticPropertyException extends \Exception
+final class ReadonlyPropertyException extends \Exception
 {
     public function __construct(string      $cls, string $propertyName, int $code = 0,
                                 ?\Throwable $previous = null)
     {
-        $message = \sprintf('Static properties are not supported: %1$s::%2$s', $cls, $propertyName);
+        $message = \sprintf('Read-only properties cannot have setter: %1$s::%2$s', $cls, $propertyName);
         parent::__construct($message, $code, $previous);
     }
 

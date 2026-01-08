@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Lombok PHP - Write less code!
  *
  * @author    Marcin Orlowski <mail (#) marcinOrlowski (.) com>
- * @copyright 2022 Marcin Orlowski
+ * @copyright ©2022-2026 Marcin Orlowski
  * @license   https://opensource.org/licenses/LGPL-3.0 LGPL-3.0
  * @link      https://github.com/MarcinOrlowski/lombok-php
  */
@@ -37,7 +37,7 @@ class TestEntity extends \Lombok\Helper
      * @var mixed
      * @phpstan-ignore-next-line
      */
-    protected $mixed;
+    protected $noTypehint;
 
     #[Setter, Getter]
     protected string|int $union;
@@ -50,4 +50,7 @@ class TestEntity extends \Lombok\Helper
 
     #[Setter, Getter]
     protected bool|string $booleanOrString = false;
+
+    #[Setter, Getter]
+    protected mixed $mixed;
 }
