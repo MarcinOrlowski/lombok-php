@@ -10,11 +10,8 @@
 ##################################################################################
 
 parameters:
-  checkGenericClassInNonGenericObjectType: false
   # https://phpstan.org/user-guide/rule-levels
   level: max
-  #level: 5
-  checkMissingIterableValueType: false
   treatPhpDocTypesAsCertain: false
   paths:
     - src/
