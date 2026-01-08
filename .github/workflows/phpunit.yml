@@ -45,7 +45,7 @@ jobs:
 
       # https://github.com/marketplace/actions/phpunit-php-actions
       - name: "Running PHPUnit..."
-        uses: php-actions/phpunit@v3
+        uses: php-actions/phpunit@v4
         with:
           bootstrap: "vendor/autoload.php"
           configuration: "phpunit.xml"
