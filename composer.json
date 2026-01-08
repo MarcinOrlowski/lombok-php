@@ -2,7 +2,7 @@
   "name": "marcin-orlowski/lombok-php",
   "description": "Never write boilerplate code for your data class again!",
   "homepage": "https://github.com/MarcinOrlowski/lombok-php",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "keywords": [
     "lombok",
     "annotation",

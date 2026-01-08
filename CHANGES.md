@@ -4,10 +4,10 @@
 
 # CHANGE LOG #
 
-* dev
+* 1.2.0 (2026-01-08)
   * Added support for "readonly" properties
   * Added `HelperReadonly` class to support "readonly" classes
-  * Added support for PHP 8.3
+  * Added support for PHP 8.3, 8.4 and 8.5
   * Updated tests
 
 
