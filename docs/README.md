@@ -134,6 +134,6 @@ public function __call(string $methodName, array $args) {
 
 ## License
 
-* Written and copyrighted &copy;2022-2025 by Marcin Orlowski <mail (#) marcinOrlowski (.) com>
+* Written and copyrighted &copy;2022-2026 by Marcin Orlowski <mail (#) marcinOrlowski (.) com>
 * `Lombok PHP` is open-source software licensed under
   the [MIT license](http://opensource.org/licenses/MIT)
