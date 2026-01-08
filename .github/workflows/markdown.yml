@@ -43,4 +43,4 @@ jobs:
       with:
         # LICENSE is externally sourced and we're not going to fix it.
         exclude: "LICENSE.md"
-        config_file: .markdownlint.yaml.dist
+        config_file: .markdownlint.yaml

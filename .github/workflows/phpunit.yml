@@ -48,4 +48,4 @@ jobs:
         uses: php-actions/phpunit@v3
         with:
           bootstrap: "vendor/autoload.php"
-          configuration: "phpunit.xml.dist"
+          configuration: "phpunit.xml"

@@ -22,8 +22,6 @@
 # * Ensure you got Python installed
 # * Install pre-commit: `pip install pre-commit`
 # * Go to your project source code root directory
-# * Copy provided config file template:
-#    `cp .pre-commit-config.yaml.dist .pre-commit-config.yaml`
 # * Plug hooks into Git pipeline: `pre-commit install`
 #
 # From now on, pre-commit hooks will be triggered on every commit. To temporarily disable them,
