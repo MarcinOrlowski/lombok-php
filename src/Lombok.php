@@ -23,13 +23,15 @@ use Lombok\Exceptions\StaticPropertyException;
 final class Lombok
 {
     /**
-     * @var array[int => ClassConfig]
+     * @var array<int, ClassConfig>
      */
     protected static array $config = [];
 
     /* ****************************************************************************************** */
 
     /**
+     * @param array<int, mixed> $args
+     *
      * @return mixed|void
      *
      * @throws \BadMethodCallException
@@ -126,10 +128,10 @@ final class Lombok
      * Scans $classProperty property's attributes and configures necessary handlers
      * for supported attributes (like #[Setter] or #[Getter], etc.)
      *
-     * @param object                 $targetObj
-     * @param \ReflectionProperty    $property  Property to be inspected.
-     * @param string                 $attrClass Attribute class to look for i.e. Getter::class.
-     * @param \ReflectionAttribute[] $clsAnnotations
+     * @param object                                      $targetObj
+     * @param \ReflectionProperty                         $property       Property to be inspected.
+     * @param string                                      $attrClass      Attribute class to look for i.e. Getter::class.
+     * @param array<string, \ReflectionAttribute<object>> $clsAnnotations
      *
      * @return \Lombok\Attributes\Accessors
      *
@@ -191,11 +193,11 @@ final class Lombok
 
             foreach ($propAttrs as $propAttr) {
                 /**
-                 * @var \ReflectionAttribute $propAttr
+                 * @var \ReflectionAttribute<object> $propAttr
                  *
                  * Lombok's attribute accessor MUST implement AccessorContract.
                  * There's no check for this as of now simply for performance reasons.
-                 * @var AccessorContract     $propAttrInstance
+                 * @var AccessorContract             $propAttrInstance
                  */
                 $propAttrInstance = $propAttr->newInstance();
                 $methodName = $propAttrInstance->getFunctionName($property);

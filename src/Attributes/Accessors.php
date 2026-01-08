@@ -14,6 +14,8 @@ namespace Lombok\Attributes;
 
 /**
  * Holds all configured accessors for a target object
+ *
+ * @extends \ArrayObject<string, \ReflectionProperty>
  */
 class Accessors extends \ArrayObject
 {

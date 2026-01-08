@@ -116,9 +116,9 @@ class TestCase extends \PHPUnit\Framework\TestCase
     /**
      * Calls protected method of $object, passing optional array of arguments.
      *
-     * @param object|string $objectOrClass Object to call $methodName on or name of the class.
-     * @param string        $methodName    Name of method to call.
-     * @param array         $args          Optional array of arguments (empty array for no args).
+     * @param object|string     $objectOrClass Object to call $methodName on or name of the class.
+     * @param string            $methodName    Name of method to call.
+     * @param array<int, mixed> $args          Optional array of arguments (empty array for no args).
      *
      * @return mixed
      *

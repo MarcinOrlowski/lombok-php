@@ -8,6 +8,7 @@
   * Added support for "readonly" properties
   * Added `HelperReadonly` class to support "readonly" classes
   * Added support for PHP 8.3, 8.4 and 8.5
+  * Improved code typehints for linter joy
   * Updated tests
 
 

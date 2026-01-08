@@ -46,6 +46,8 @@ abstract readonly class HelperReadonly
      * standard configuration phase exceptions can be thrown. But if you are not using "clone"
      * keyword, then this will never happen and can be safely ignored.
      *
+     * @param array<int, mixed> $args
+     *
      * @return mixed|void
      */
     public function __call(string $methodName, array $args)
