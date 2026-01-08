@@ -246,3 +246,5 @@ MD047: true
 MD048:
   # Code fence syle
   style: "consistent"
+
+MD059: false  # MOR
