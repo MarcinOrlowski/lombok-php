@@ -116,10 +116,8 @@ final class Lombok
      */
     public static function destruct(object $targetObj): void
     {
-        if (static::$config !== null) {
-            $id = \spl_object_id($targetObj);
-            unset(static::$config[ $id ]);
-        }
+        $id = \spl_object_id($targetObj);
+        unset(static::$config[ $id ]);
     }
 
     /* ****************************************************************************************** */
