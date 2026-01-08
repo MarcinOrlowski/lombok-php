@@ -135,7 +135,7 @@ public function __call(string $methodName, array $args) {
   create a PHPDocs block with `@method` annotations for each magic method.
 
 
-## License
+## License ##
 
 * Written and copyrighted &copy;2022-2026 by Marcin Orlowski <mail (#) marcinOrlowski (.) com>
 * `Lombok PHP` is open-source software licensed under
