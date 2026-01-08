@@ -47,5 +47,6 @@ jobs:
       - name: "Running PHPUnit..."
         uses: php-actions/phpunit@v4
         with:
+          php_version: "${{ matrix.php }}"
           bootstrap: "vendor/autoload.php"
           configuration: "phpunit.xml"
